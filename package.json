@@ -1,0 +1,15 @@
+{
+  "name": "reduxpractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "immer": "^9.0.14",
+    "redux": "^4.2.0"
+  }
+}
