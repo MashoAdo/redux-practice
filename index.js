@@ -65,12 +65,12 @@ const cakeReducer = (state = intialCakeState, action) => {
 
 const icecreamReducer = (state = intialIceCreamState, action) => {
   switch (action.type) {
-    case "ICECREAM_ORDERED":
+    case ICECREAM_ORDERED:
       return {
         ...state,
         numOfIcecreams: state.numOfIcecreams - action.payload,
       };
-    case "ICECREAM_RESTOCKED":
+    case ICECREAM_RESTOCKED:
       return {
         ...state,
         numOfIcecreams: state.numOfIcecreams + action.payload,
@@ -82,7 +82,7 @@ const icecreamReducer = (state = intialIceCreamState, action) => {
 
 const reducer = combinedReducers({
   cake: cakeReducer,
-  ish: icecreamReducer,
+  iceCream: icecreamReducer,
 });
 const store = createStore(reducer, applyMiddleware(logger));
 // console.log("initial state", store.getState());
