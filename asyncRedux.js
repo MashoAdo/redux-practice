@@ -18,14 +18,12 @@ const FETCH_ERROR = "FETCH_ERROR";
 
 // action creators
 const fetchRequested = () => {
-  console.log("requested");
   return {
     type: FETCH_REQUESTED,
   };
 };
 
 const fetchSuccess = (users) => {
-  console.log("success");
   return {
     type: FETCH_SUCCESS,
     payload: users,
@@ -33,7 +31,6 @@ const fetchSuccess = (users) => {
 };
 
 const fetchError = (errorMessage) => {
-  console.log("error");
   return {
     type: FETCH_ERROR,
     payload: errorMessage,
@@ -41,7 +38,6 @@ const fetchError = (errorMessage) => {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log("reducer");
   switch (action.type) {
     case FETCH_REQUESTED:
       return {
@@ -65,16 +61,17 @@ const reducer = (state = initialState, action) => {
 };
 
 const fetchUsers = () => {
-  console.log("fetch users");
   return function (dispatch) {
     dispatch(fetchRequested());
+
     axios
       .get("https://jsonplaceholder.typicode.com/users")
+
       .then((response) => {
         const users = response.data.map((user) => user.id);
-        console.log("fetched users", users);
         dispatch(fetchSuccess(users));
       })
+
       .catch((error) => {
         // error message
         dispatch(fetchError(error.message));
